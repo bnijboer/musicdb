@@ -1,25 +1,40 @@
 <?php
 
-class QueryBuilder {
-
+class QueryBuilder
+{
       protected $pdo;
 
-      public function __construct($pdo) {
+      public function __construct($pdo)
+      {
             $this->pdo = $pdo;
       }
 
-      public function selectAll($table) {
-            
-            $statement = $this->pdo->prepare("select * from {$table}");
+      public function selectAll($table)
+      {
+            $statement = $this->pdo->prepare("SELECT * FROM {$table}");
             $statement -> execute();
       
             return $statement->fetchAll(PDO::FETCH_CLASS);
       }
 
-      public function insert($table, $params) {
+      public function search($table, $searchQuery)
+      {
+            $statement = $this->pdo->prepare(
+                  "SELECT * FROM {$table}
+                  WHERE artist LIKE '%$searchQuery%'
+                  OR title LIKE '%$searchQuery%'
+                  OR genre LIKE '%$searchQuery%'"
+            );
 
+            $statement -> execute();
+      
+            return $statement->fetchAll(PDO::FETCH_CLASS);
+      }
+
+      public function insert($table, $params)
+      {
             $sql = sprintf(
-                  'insert into %s (%s) values (%s)',
+                  'INSERT INTO %s (%s) VALUES (%s)',
                   $table,
                   implode(', ', array_keys($params)),
                   ':' . implode(', :', array_keys($params))

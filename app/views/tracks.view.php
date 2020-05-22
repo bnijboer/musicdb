@@ -1,18 +1,19 @@
 <?php require 'partials/header.php'; ?>
 
-<h1>Tracks overview</h1>
+<?php if($searchQuery) : ?>
+      <h1>Search results for "<?= $searchQuery ?>"</h1>
+<?php else : ?>
+      <h1>All tracks</h1>
+<?php endif; ?>
 
-<form method="POST" action="/tracks">
-      <input type="text" name="artist" placeholder="artist">
-      <input type="text" name="title" placeholder="title">
-      <input type="text" name="genre" placeholder="genre">
-      <button type="submit">Submit</button>
-<form>
-
-<ul>
-      <?php foreach ($tracks as $track) : ?>
-            <li><?= "{$track->artist} - {$track->title} - {$track->genre}"; ?></li>
-      <?php endforeach ?>
-</ul>
+<?php if(empty($tracks)) : ?>
+      Your search for "<?= $searchQuery ?>" returned no results.
+<?php else : ?>
+      <ul>
+            <?php foreach($tracks as $track) : ?>
+                  <li><?= "{$track->artist} - {$track->title} - {$track->genre}"; ?></li>
+            <?php endforeach; ?>
+      </ul>
+<?php endif; ?>
 
 <?php require 'partials/footer.php'; ?>

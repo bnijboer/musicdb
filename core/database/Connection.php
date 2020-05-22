@@ -1,10 +1,12 @@
 <?php
 
-class Connection {
-      public static function make($config) {
+class Connection
+{
+      public static function make($config)
+      {
             try {
-                  return new PDO(
-                        $config['connection'].';dbname='.$config['name'],
+                  return new PDO (
+                        $config['connection'] . ';dbname='.$config['name'],
                         $config['username'],
                         $config['password'],
                         $config['options']
