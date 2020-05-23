@@ -1,3 +1,148 @@
+/* GENERAL */
+
+html, body {
+      margin: 0;
+}
+
 body {
-      background: red;
+      background: white;
+      font-family: 'Open Sans', sans-serif;
+      height: 1000px;
+}
+
+input {
+      border: 1px solid grey;
+      border-radius: 2px;
+      padding: 5px;
+}
+
+.page-container {
+      width: 90%;
+      margin: 70px auto 0;
+}
+
+h1 {
+      text-align: center;
+      padding: 15px 0;
+}
+
+/* NAVIGATION BAR */
+
+nav {
+      background: rgb(250, 250, 250);
+      width: 100%;
+      box-shadow: 0.25px 0.25px 3px 1px lightgray;
+      font-size: 18px;
+      position: fixed;
+      top: 0;
+}
+
+nav ul {
+      list-style: none;
+      padding: 10px 0 10px 15px;
+      margin: 0;
+      display: flex;
+}
+
+nav li {
+      padding-right: 15px;
+}
+
+nav a {
+      color: lightslategray;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+}
+
+nav a:hover {
+      border-bottom: 1px solid lightgrey;
+}
+
+#search-bar {
+      margin-left: auto;
+}
+
+#search-button {
+      background: lightskyblue;
+      border: none;
+      color: white;
+      width: 65px;
+}
+
+#search-button:hover {
+      background: rgb(122, 186, 226);
+}
+
+.button:hover {
+      box-shadow: 0.25px 0.25px 1.5px lightgrey;
+}
+
+/* INDEX PAGE */
+
+#form-container {
+      background: lightgoldenrodyellow;
+      width: 400px;
+      border-radius: 5px;
+      margin: 0 auto;
+}
+
+#form-container form {
+      display: flex;
+      flex-flow: column wrap;
+      padding: 20px;
+}
+
+#form-container form input {
+      margin: 5px 0;
+}
+
+#form-container form div {
+      text-align: center;
+      margin-top: 10px;
+}
+
+#insert-button {
+      background: rgb(115, 233, 115);
+      border: none;
+      color: white;
+      width: 65px;
+}
+
+#insert-button:hover {
+      background: rgb(102, 226, 102);
+}
+
+/* TRACKS AND SEARCH RESULTS PAGE */
+
+#no-results {
+      text-align: center;
+}
+
+table {
+      border: 1px solid grey;
+      width: 100%;
+      font-size: 14px;
+}
+
+tr:nth-child(odd) {
+      background: rgb(230, 230, 230);
+}
+
+th {
+      background: rgb(178, 192, 207);
+      font-size: 15px;
+      padding: 8px 8px;
+      text-align: left;
+}
+
+td {
+      padding: 6px 8px;
+}
+
+td a {
+      color: rgb(155, 179, 202);
+}
+
+td a:hover {
+      color: rgb(112, 129, 146);
 }
