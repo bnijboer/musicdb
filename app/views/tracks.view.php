@@ -14,15 +14,23 @@
             <tr>
                   <th>Artist</th>
                   <th>Title</th>
-                  <th>Style</th>
-                  <th>Google Search</th>
+                  <th>Release</th>
+                  <th>Style(s)</th>
+                  <th>Genre</th>
+                  <th>Notes</th>
+                  <th>In collection</th>
             </tr>
             <?php foreach($tracks as $track) : ?>
             <tr>
                   <td><?= $track->artist; ?></td>
-                  <td><?= $track->title; ?></div>
-                  <td><?= $track->genre; ?></div>
-                  <td><a href="http://www.google.com/search?q=<?= str_replace(array(" ", "&", "="), '+', $track->artist); ?>+<?= str_replace(array(" ", "&", "="), '+', $track->title); ?>" target="_blank"><i class="fas fa-search"></i></a></td>
+                  <td><a href="http://www.google.com/search?q=<?= str_replace(array(" ", "&", "="), '+', $track->artist); ?>+<?= str_replace(array(" ", "&", "="), '+', $track->title); ?>+<?= str_replace(array(" ", "&", "="), '+', $track->record); ?>" target="_blank"><?= $track->title; ?></a></td>
+                  <td><?= $track->record; ?></td>
+                  <td><?= $track->style; ?></td>
+                  <td><?= $track->genre; ?></td>
+                  <td><?= $track->notes; ?></td>
+                  <?php if($track->fileLocated !== NULL) : ?>
+                        <td><?= $track->fileLocated; ?></td>
+                  <?php endif; ?>
             </tr>
             <?php endforeach; ?>
       </table>

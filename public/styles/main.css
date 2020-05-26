@@ -2,12 +2,11 @@
 
 html, body {
       margin: 0;
+      padding: 0;
 }
 
 body {
-      background: white;
       font-family: 'Open Sans', sans-serif;
-      height: 1000px;
 }
 
 input {
@@ -17,13 +16,14 @@ input {
 }
 
 .page-container {
-      width: 90%;
+      width: 97%;
       margin: 70px auto 0;
 }
 
 h1 {
       text-align: center;
       padding: 15px 0;
+      font-size: 4vmin;
 }
 
 /* NAVIGATION BAR */
@@ -122,6 +122,8 @@ table {
       border: 1px solid grey;
       width: 100%;
       font-size: 14px;
+      height: 100%;
+      margin-bottom: 50px;
 }
 
 tr:nth-child(odd) {
@@ -130,19 +132,22 @@ tr:nth-child(odd) {
 
 th {
       background: rgb(178, 192, 207);
-      font-size: 15px;
+      font-size: 2.2vmin;
       padding: 8px 8px;
       text-align: left;
 }
 
 td {
       padding: 6px 8px;
+      font-size: 1.8vmin;
+      color: rgb(70, 70, 70);
 }
 
 td a {
-      color: rgb(155, 179, 202);
+      text-decoration: none;
+      color: rgb(70, 70, 70);
 }
 
 td a:hover {
-      color: rgb(112, 129, 146);
+      color: black;
 }

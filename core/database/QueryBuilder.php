@@ -23,7 +23,10 @@ class QueryBuilder
                   "SELECT * FROM {$table}
                   WHERE artist LIKE '%$searchQuery%'
                   OR title LIKE '%$searchQuery%'
-                  OR genre LIKE '%$searchQuery%'"
+                  OR record LIKE '%$searchQuery%'
+                  OR style LIKE '%$searchQuery%'
+                  OR genre LIKE '%$searchQuery%'
+                  OR notes LIKE '%$searchQuery%'"
             );
 
             $statement -> execute();
@@ -33,6 +36,7 @@ class QueryBuilder
 
       public function insert($table, $params)
       {
+            
             $sql = sprintf(
                   'INSERT INTO %s (%s) VALUES (%s)',
                   $table,
@@ -40,12 +44,14 @@ class QueryBuilder
                   ':' . implode(', :', array_keys($params))
             );
 
+            
+
             try {
                   $statement = $this->pdo->prepare($sql);
 
                   $statement->execute($params);
             } catch (Exception $e) {
-                  die('Something went wrong.');
+                  die($e->getMessage());
             }
       }
 }
